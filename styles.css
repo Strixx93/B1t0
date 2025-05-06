@@ -133,13 +133,15 @@ body::after {
     gap: 4rem;
     min-height: 80vh;
     z-index: 2;
-    transition: opacity 1s ease, transform 1s ease;
+    transition: opacity 1.5s ease, transform 1.5s ease;
+    max-width: 100rem;
+    margin: 0 auto;
 }
 
 .hero-content {
     flex: 1 1 300px;
     max-width: 600px;
-    margin: 0 10rem;
+    margin: 0 4rem 0 6rem;
 }
 
 .hero-content h1 {
@@ -615,7 +617,7 @@ body::after {
 
 @media (min-width: 1800px) {
     .hero {
-        gap: 15rem;
+        gap: 6rem;
     }
 }
 
