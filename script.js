@@ -4,11 +4,11 @@ document.addEventListener('mousemove', function(event) {
     const mouseX = event.clientX;
     const mouseY = event.clientY;
 
-    const heroContent = document.querySelector('.hero-content');
+    const heroContentH1 = document.querySelector('.hero-content h1');
     const heroImage = document.querySelector('.hero-image');
-    if (!heroContent || !heroImage) return;
+    if (!heroContentH1 || !heroImage) return;
 
-    const rect = heroContent.getBoundingClientRect();
+    const rect = heroContentH1.getBoundingClientRect();
     const heroCenterX = rect.left + rect.width / 2;
     const heroCenterY = rect.top + rect.height / 2;
 
@@ -22,11 +22,13 @@ document.addEventListener('mousemove', function(event) {
         return low2 + (high2 - low2) * (value - low1) / (high1 - low1);
     }
 
-    const glowIntensity = mapRange(distance, 0, maxDistance, 1, 0); // Increased intensity
+    // Adjusted glow intensity and spread for smoother effect
+    const glowIntensity = mapRange(distance, 0, maxDistance, 0, 0);
     const textColor = '62EAF5';
-    const shadowSpread = mapRange(distance, 0, maxDistance, 28, 0); // Control spread
-    const textShadow = `0 0 ${glowIntensity}px #${textColor}, 0 0 ${shadowSpread}px rgba(98, 234, 245, 0.5)`; // Added spread
-    heroContent.style.textShadow = textShadow;
+    const shadowSpread = mapRange(distance, 0, maxDistance*0.5, 28, 0);
+    const textShadow = `0 0 ${glowIntensity}px #${textColor}, 0 0 ${shadowSpread}px rgba(98, 234, 245, 0.6)`;
+    heroContentH1.style.transition = 'text-shadow 0.3s ease';
+    heroContentH1.style.textShadow = textShadow;
 });
 
 const aboutSection = document.querySelector('.about-section');
