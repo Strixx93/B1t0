@@ -900,10 +900,69 @@ body::-webkit-scrollbar {
     flex: 1 1 45%;
   }
   
-  @media (max-width: 768px) {
+@media (max-width: 992px) {
+    body {
+      padding-left: 1rem !important;
+      padding-right: 1rem !important;
+      box-sizing: border-box;
+    }
+
+    .hero,
+    .about-container,
+    .mission-container,
+    .sponsors-section,
+    .starb1t0-ftc-section {
+      padding-left: 1rem !important;
+      padding-right: 1rem !important;
+      box-sizing: border-box;
+    }
+
+    .hero {
+      flex-direction: column !important;
+      align-items: center !important;
+      overflow-x: hidden !important;
+      width: 100% !important;
+      padding-left: 0 !important;
+      padding-right: 0 !important;
+    }
+
+    .hero-content {
+      margin: 0 !important;
+      max-width: 100% !important;
+      width: 100% !important;
+      padding: 0 1rem !important;
+      box-sizing: border-box !important;
+    }
+
+    .hero-content h1 {
+      font-size: 3.5rem !important;
+      letter-spacing: 0.4rem !important;
+    }
+
+    .hero-image {
+      max-width: 300px !important;
+      width: 100% !important;
+      margin: 1rem 0 !important;
+    }
+
+    .site-header {
+      padding: 1rem 1rem !important;
+      max-width: 100% !important;
+      flex-wrap: wrap !important;
+    }
+
+    .site-header .logo {
+      font-size: 1rem !important;
+    }
+
+    .main-nav a {
+      font-size: 0.85rem !important;
+    }
+
     .about-container {
-      flex-direction: column;
-      text-align: center;
+      flex-direction: column !important;
+      flex-wrap: nowrap !important;
+      text-align: left;
     }
   
     .about-container .about-image img {
@@ -914,7 +973,16 @@ body::-webkit-scrollbar {
     .about-container .about-text,
     .about-container .about-image {
       width: 100%;
+      display: block !important;
     }
-  }
+
+    .about-container .about-image {
+      order: 1 !important;
+    }
+
+    .about-container .about-text {
+      order: 2 !important;
+    }
+}
   
   
