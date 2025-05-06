@@ -249,8 +249,8 @@ body::after {
 }
 
 .sponsors-section {
-    padding-top: 100rem;
-    padding-bottom: 100rem;
+    padding-top: 3rem;
+    padding-bottom: 8rem;
 }
 
 @media (min-width: 768px) {
@@ -290,7 +290,7 @@ body::after {
     align-items: center;
     max-width: 1200px;
     width: 100%;
-    margin: 1rem auto -30rem auto;
+    margin: 1rem auto 3rem auto;
     padding-top: 1rem;
     padding-bottom: 0rem;
     z-index: 1;
@@ -489,18 +489,6 @@ body::after {
     transform: none;
     box-shadow: 30px 30px 40px rgba(17, 144, 191, 0);
     transition: box-shadow 1s ease;
-}
-
-.starb1t0-ftc-section .about-image img {
-    background-color: transparent !important;
-    box-shadow: none !important;
-    transition: transform 1s ease;
-    max-width: 100%;
-    height: auto;
-}
-
-.starb1t0-ftc-section .about-image img:hover {
-    transform: scale(0.95);
 }
 
 
@@ -819,7 +807,7 @@ body::-webkit-scrollbar {
 }
 
 #spacer {
-    height: 200vh;
+    height: 20vh;
     width: 100%;
     background-color: transparent;
 }
@@ -872,6 +860,18 @@ body::-webkit-scrollbar {
     transition: opacity 0.3s ease-in-out, background-color 0.3s ease-in-out;
 }
 
+.starb1t0-ftc-section .about-image img {
+    background-color: transparent !important;
+    box-shadow: none !important;
+    transition: transform 1s ease;
+    max-width: 100%;
+    height: auto;
+}
+
+.starb1t0-ftc-section .about-image img:hover {
+    transform: scale(0.95);
+}
+
 /* Added smooth shadow transition for about image */
 #about-image {
     transition: box-shadow 2s ease;
@@ -886,3 +886,35 @@ body::-webkit-scrollbar {
     box-shadow: 30px 30px 40px rgba(17, 144, 191, 0);
     transition: box-shadow 2s ease;
 }
+
+.about-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 2rem;
+  }
+  
+  .about-container .about-image,
+  .about-container .about-text {
+    flex: 1 1 45%;
+  }
+  
+  @media (max-width: 768px) {
+    .about-container {
+      flex-direction: column;
+      text-align: center;
+    }
+  
+    .about-container .about-image img {
+      width: 80%;
+      height: auto;
+    }
+  
+    .about-container .about-text,
+    .about-container .about-image {
+      width: 100%;
+    }
+  }
+  
+  

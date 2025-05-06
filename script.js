@@ -32,6 +32,7 @@ document.addEventListener('mousemove', function(event) {
 const aboutSection = document.querySelector('.about-section');
 const missionSection = document.querySelector('.mission-section');
 const starb1t0Section = document.querySelector('.starb1t0-ftc-section');
+const sponsorsSection = document.querySelector('.sponsors-section');
 const heroContent = document.querySelector('.hero-content');
 const heroImage = document.querySelector('.hero-image');
 
@@ -39,6 +40,7 @@ let lastScrollY = window.scrollY;
 let isIntersectingAbout = false;
 let isIntersectingMission = false;
 let isIntersectingStarb1t0 = false;
+let isIntersectingSponsors = false;
 
 const observerAbout = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
@@ -76,10 +78,25 @@ const observerStarb1t0 = new IntersectionObserver((entries) => {
     threshold: 0.5,
 });
 
+const observerSponsors = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        isIntersectingSponsors = entry.isIntersecting;
+        if (!isIntersectingSponsors) {
+            sponsorsSection.classList.remove('show');
+            sponsorsSection.classList.remove('reverse');
+        }
+    });
+}, {
+    threshold: 0.5,
+});
+
 observerAbout.observe(aboutSection);
 observerMission.observe(missionSection);
 if (starb1t0Section) {
     observerStarb1t0.observe(starb1t0Section);
+}
+if (sponsorsSection) {
+    observerSponsors.observe(sponsorsSection);
 }
 
 let ticking = false;
@@ -123,6 +140,16 @@ window.addEventListener('scroll', () => {
             } else {
                 starb1t0Section.classList.remove('show');
                 starb1t0Section.classList.remove('reverse');
+            }
+
+            if (isIntersectingSponsors) {
+                if (!sponsorsSection.classList.contains('show')) {
+                    sponsorsSection.classList.add('show');
+                }
+                sponsorsSection.classList.remove('reverse');
+            } else {
+                sponsorsSection.classList.remove('show');
+                sponsorsSection.classList.remove('reverse');
             }
 
             ticking = false;
