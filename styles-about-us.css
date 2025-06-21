@@ -133,6 +133,7 @@ body::after {
     justify-content: center;
     align-items: center;
     margin-top: 20rem;
+    padding-bottom: 14rem;
     width: 100%;
 }
 
@@ -165,3 +166,30 @@ body::after {
     background-color: #491f9d6d;
 }
 
+/* Fade In and Fade Out Animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes fadeOut {
+    from { opacity: 1; }
+    to { opacity: 0; }
+}
+
+.fade-in {
+    animation: fadeIn 2.5s ease forwards;
+}
+
+.fade-out {
+    animation: fadeOut 2.5s ease forwards;
+}
+
+/* Fade animations for hero-content */
+.hero-content.fade-in {
+    animation: fadeIn 2.5s ease forwards;
+}
+
+.hero-content.fade-out {
+    animation: fadeOut 2.5s ease forwards;
+}
