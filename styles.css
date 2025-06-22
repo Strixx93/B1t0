@@ -37,7 +37,7 @@ body {
     position: relative;
     font-family: 'Outfit', sans-serif;
     color: #FFFFFF;
-    background: rgb(2, 11, 40);
+    background: rgb(1, 8, 32);/*rgb(2, 11, 40)*/
     min-height: 100%;
     transition: background-color 0.3s ease-in-out;
     --circle-opacity-1: 0.6;
