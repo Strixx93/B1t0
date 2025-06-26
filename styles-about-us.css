@@ -133,7 +133,7 @@ body::after {
     justify-content: center;
     align-items: center;
     margin-top: 20rem;
-    padding-bottom: 14rem;
+    padding-bottom: 5rem;
     width: 100%;
 }
 
@@ -159,6 +159,120 @@ body::after {
 }
 
 .first-image img {
+    width: 25vw;
+    height: 25vw;
+    border-radius: 50%;
+    box-shadow: -20px 30px 80px rgba(151, 46, 212, 0.452);
+    background-color: #491f9d6d;
+}
+.second-section{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20rem;
+    padding-bottom: 5rem;
+    width: 100%;
+}
+
+.second-image{
+    flex: 1;
+    margin-left: 10rem;
+}
+
+.second-content{
+    flex:1;
+    margin-right: 10rem;
+}
+
+.second-content h1{
+    font-size: clamp(1.5rem, 7vw, 2.5rem);
+    letter-spacing: 0.4rem;
+    font-weight: 300;
+    color: #62EAF5;
+}
+
+.second-content p{
+    line-height: 150%;
+}
+
+.second-image img {
+    width: 25vw;
+    height: 25vw;
+    border-radius: 50%;
+    box-shadow: -20px 30px 80px rgba(151, 46, 212, 0.452);
+    background-color: #491f9d6d;
+}
+.third-section{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20rem;
+    padding-bottom: 5rem;
+    width: 100%;
+}
+
+.third-image{
+    flex: 1;
+    margin-left: 10rem;
+}
+
+.-content{
+    flex:1;
+    margin-right: 10rem;
+}
+
+.third-content h1{
+    font-size: clamp(1.5rem, 7vw, 2.5rem);
+    letter-spacing: 0.4rem;
+    font-weight: 300;
+    color: #62EAF5;
+}
+
+.third-content p{
+    line-height: 150%;
+}
+
+.third-image img {
+    width: 25vw;
+    height: 25vw;
+    border-radius: 50%;
+    box-shadow: -20px 30px 80px rgba(151, 46, 212, 0.452);
+    background-color: #491f9d6d;
+}
+.fourth-section{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20rem;
+    padding-bottom: 5rem;
+    width: 100%;
+}
+
+.fourth-image{
+    flex: 1;
+    margin-left: 10rem;
+}
+
+.fourth-content{
+    flex:1;
+    margin-right: 10rem;
+}
+
+.fourth-content h1{
+    font-size: clamp(1.5rem, 7vw, 2.5rem);
+    letter-spacing: 0.4rem;
+    font-weight: 300;
+    color: #62EAF5;
+}
+
+.fourth-content p{
+    line-height: 150%;
+}
+
+.fourth-image img {
     width: 25vw;
     height: 25vw;
     border-radius: 50%;
