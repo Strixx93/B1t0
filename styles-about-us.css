@@ -35,7 +35,7 @@ body::before {
     position: absolute;
     width: 35vw;
     height: 75vh;
-    top: -35vh;
+    top: -35vh;  
     left: -15vw;
     background: rgba(151, 46, 212, 0.65);;
     border-radius: 50%;

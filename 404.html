@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - Page Not Found</title>
+    <!-- Link to external stylesheet - all custom and former Tailwind CSS will be here -->
+    <link rel="stylesheet" href="style404.css">
+</head>
+<body>
+    <div class="container-404">
+        <!-- Big, bold 404 text -->
+        <h1 class="heading-404">
+            404
+        </h1>
+        <!-- Page not found message -->
+        <h2 class="subheading-404">
+            Oops! Page Not Found
+        </h2>
+        <!-- User-friendly explanation -->
+        <p class="explanation-text">
+            The page you're looking for might have been removed, had its name changed, or is temporarily unavailable.
+        </p>
+        <!-- Button to go back to homepage -->
+        <a href="/" class="home-button">
+            Go to Homepage
+        </a>
+    </div>
+
+    <!-- Simple bounce animation for the 404 text using a class -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const h1 = document.querySelector('.heading-404');
+            // This script simply ensures the element exists; the animation itself is purely CSS.
+            // If you wanted to *trigger* the animation with JS, you'd add/remove a class here.
+            // For a continuous CSS animation, no JS is needed.
+        });
+    </script>
+</body>
+</html>
