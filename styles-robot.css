@@ -18,7 +18,7 @@ body {
     color: #FFFFFF;
     background: rgb(1, 8, 32); /* This is the main background color for your site */
     min-height: 100%;
-    overflow: hidden; /* Prevent scrollbars from animations or content overflow */
+    overflow-y: auto; /* Changed to allow vertical scrolling */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -245,6 +245,22 @@ body {
 .hero-image #img1 {
   position: relative;
   top: 1.5rem; /* Adjust this value to lower the image as needed */
+}
+
+/* Reusable blueprint grid background class for any container */
+.blueprint-grid-background {
+    background-image:
+        linear-gradient(to right, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+        linear-gradient(to right, rgba(255, 255, 255, 0.08) 2px, transparent 2px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.08) 2px, transparent 2px);
+    background-size:
+        20px 20px,
+        20px 20px,
+        100px 100px,
+        100px 100px;
+    background-position: 0 0;
+    pointer-events: none; /* Prevent interaction interference */
 }
 
 
