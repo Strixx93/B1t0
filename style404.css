@@ -1,0 +1,110 @@
+/*
+ * This content should be saved in a file named `style.css`
+ * in the same directory as your `404.html` file.
+ */
+
+/* 1. Global Styles for Body */
+body {
+    font-family: 'Inter', sans-serif; /* Custom font */
+    background-color: rgb(1, 8, 32); /* Dark background color */
+    display: flex; /* For centering content */
+    align-items: center; /* For centering content vertically */
+    justify-content: center; /* For centering content horizontally */
+    min-height: 100vh; /* Full viewport height */
+    padding: 1rem; /* Padding around the content */
+    margin: 0; /* Remove default body margin */
+    box-sizing: border-box; /* Ensure padding doesn't cause overflow */
+    color: aliceblue; /* Set default text color for the body */
+}
+
+/* 2. Container for the 404 content */
+.container-404 {
+    text-align: center;
+    /* Glassy effect changes: */
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(22, 0, 119, 0.116)); /* Semi-transparent linear gradient */
+    backdrop-filter: blur(10px); /* Apply blur effect behind the element */
+    -webkit-backdrop-filter: blur(10px); /* For Safari support */
+    border: 1px solid rgba(255, 255, 255, 0.18); /* Subtle light border */
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37); /* Adjusted shadow for glassy look */
+    /* End Glassy effect changes */
+
+    padding: 2rem;
+    border-radius: 0.75rem;
+    max-width: 28rem;
+    width: 100%;
+}
+
+/* Media query for medium screens and above (md: breakpoints) */
+@media (min-width: 768px) {
+    .container-404 {
+        padding: 3rem; /* md:p-12 equivalent */
+    }
+}
+
+/* 3. Styling for the 404 heading */
+.heading-404 {
+    font-size: 3.75rem; /* text-6xl equivalent */
+    font-weight: 800; /* font-extrabold equivalent */
+    color: #6108f0; /* text-red-500 equivalent */
+    margin-bottom: 1rem; /* mb-4 equivalent */
+    animation: bounce 1s infinite; /* Apply the bounce animation */
+}
+
+/* Media query for medium screens and above (md: breakpoints) */
+@media (min-width: 768px) {
+    .heading-404 {
+        font-size: 6rem; /* md:text-8xl equivalent */
+    }
+}
+
+/* Define the bounce animation keyframes */
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(-25%);
+        animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
+    }
+    50% {
+        transform: translateY(0);
+        animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+    }
+}
+
+/* 4. Styling for the subheading */
+.subheading-404 {
+    font-size: 1.5rem; /* text-2xl equivalent */
+    font-weight: 700; /* font-bold equivalent */
+    color: inherit; /* Inherits aliceblue from body, or specify a different color */
+    margin-bottom: 1rem; /* mb-4 equivalent */
+}
+
+/* Media query for medium screens and above (md: breakpoints) */
+@media (min-width: 768px) {
+    .subheading-404 {
+        font-size: 1.875rem; /* md:text-3xl equivalent */
+    }
+}
+
+/* 5. Styling for the explanation text */
+.explanation-text {
+    color: inherit; /* Inherits aliceblue from body, or specify a different color */
+    font-size: 1.125rem; /* text-lg equivalent */
+    margin-bottom: 2rem; /* mb-8 equivalent */
+}
+
+/* 6. Styling for the homepage button */
+.home-button {
+    display: inline-block;
+    background-color: #62ebf53d; /* bg-blue-600 equivalent */
+    color: #fff; /* text-white equivalent */
+    font-weight: 600; /* font-semibold equivalent */
+    padding: 0.75rem 1.5rem; /* py-3 px-6 equivalent */
+    border-radius: 9999px; /* rounded-full equivalent */
+    text-decoration: none; /* Remove underline from link */
+    transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; /* transition duration-300 ease-in-out equivalent */
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1); /* shadow-md equivalent */
+}
+
+.home-button:hover {
+    background-color: #62ebf579; /* hover:bg-blue-700 equivalent */
+    transform: scale(1.05); /* hover:scale-105 equivalent */
+}
