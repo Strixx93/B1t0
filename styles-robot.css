@@ -18,7 +18,7 @@ body {
     color: #FFFFFF;
     background: rgb(1, 8, 32); /* This is the main background color for your site */
     min-height: 100%;
-    overflow: hidden; /* Prevent scrollbars from animations or content overflow */
+    overflow-y: auto; /* Changed to allow vertical scrolling */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -29,6 +29,18 @@ body {
     position: relative;
     z-index: 10; /* Higher z-index to ensure content is always on top */
     width: 100%;
+}
+
+.hero {
+    opacity: 0;
+}
+
+.intake {
+    opacity: 0;
+}
+
+.claw {
+    opacity: 0;
 }
 
 
@@ -67,184 +79,145 @@ body {
 }
 
 
-/* --- Blueprint Grid Background Styles --- */
-/* Container for the animated grid background */
-.blueprint-grid-container {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    z-index: 0; /* Stays behind all main content */
+.hero-content {
+    text-align: center;
+}
 
-    /* The actual static grid lines - always visible with low opacity */
+.hero-image {
+    flex: 1 1 300px;
+    flex-wrap: wrap;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    margin-bottom: 10rem;
+}
+
+.hero-content h1{
+    margin-top: 5rem;
+    margin-bottom: 1.5rem;
+    font-size: 3rem;
+    font-weight: 500;
+    letter-spacing: 0.2rem;
+}
+
+.hero-content p{
+    font-size:1.5rem;
+    font-weight: 600;
+}
+
+.hero-image #img1 {
+  position: relative;
+  top: 1.5rem; /* Adjust this value to lower the image as needed */
+  margin-right: 7rem;
+}
+
+/* Reusable blueprint grid background class for any container */
+body{
     background-image:
-        linear-gradient(to right, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
-        linear-gradient(to right, rgba(255, 255, 255, 0.08) 2px, transparent 2px),
-        linear-gradient(to bottom, rgba(255, 255, 255, 0.08) 2px, transparent 2px);
-
+        linear-gradient(to right, rgba(255, 255, 255, 0.1) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.1) 1px, transparent 1px),
+        linear-gradient(to right, rgba(255, 255, 255, 0.2) 2px, transparent 2px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.20) 2px, transparent 2px);
     background-size:
         20px 20px,
         20px 20px,
         100px 100px,
         100px 100px;
     background-position: 0 0;
+    /* pointer-events: none; Prevent interaction interference */
+    font-family: 'Outfit', sans-serif;
 }
 
-/* Styles for the individual grid lighting overlay divs */
-.grid-light-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    /* Start at a low opacity so grid is always visible, even when no mask passes */
-    opacity: 0.2; 
-
-    /* Same grid pattern as the base, but with higher opacity for the "lighting up" effect */
-    background-image:
-        linear-gradient(to right, rgba(255, 255, 255, 0.6) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(255, 255, 255, 0.6) 1px, transparent 1px),
-        linear-gradient(to right, rgba(255, 255, 255, 0.9) 2px, transparent 2px),
-        linear-gradient(to bottom, rgba(255, 255, 255, 0.9) 2px, transparent 2px);
-
-    background-size:
-        20px 20px,
-        20px 20px,
-        100px 100px,
-        100px 100px;
-    background-position: 0 0; /* This grid is also static relative to its container */
-
-    /* Base mask for all overlay layers (a single band)
-       Changed 'transparent' stops to 'rgba(255,255,255,0.1)'
-       This ensures the grid is always faintly visible through the mask's "hidden" parts.
-    */
-    -webkit-mask-image: linear-gradient(to right, rgba(255,255,255,0.1) 0%, white 50%, rgba(255,255,255,0.1) 100%);
-    mask-image: linear-gradient(to right, rgba(255,255,255,0.1) 0%, white 50%, rgba(255,255,255,0.1) 100%);
-    
-    -webkit-mask-size: 300% 100%;
-    mask-size: 300% 100%;
-    -webkit-mask-repeat: no-repeat;
-    mask-repeat: no-repeat;
-}
-
-/* Animations for each directional overlay */
-
-/* Horizontal sweep */
-.grid-light-overlay--horizontal {
-    animation: light-horizontal 8s ease-out infinite;
-}
-@keyframes light-horizontal {
-    0% { opacity: 0.2; -webkit-mask-position: -100% 0; mask-position: -100% 0; }
-    10% { opacity: 1; } /* Fade in to full brightness */
-    90% { opacity: 1; } /* Stay visible during sweep */
-    100% { opacity: 0.2; -webkit-mask-position: 200% 0; mask-position: 200% 0; } /* Fade out to base opacity and reset */
-}
-
-/* Vertical sweep */
-.grid-light-overlay--vertical {
-    animation: light-vertical 7s ease-out infinite 1s; /* Add delay */
-    -webkit-mask-image: linear-gradient(to bottom, rgba(255,255,255,0.1) 0%, white 50%, rgba(255,255,255,0.1) 100%);
-    mask-image: linear-gradient(to bottom, rgba(255,255,255,0.1) 0%, white 50%, rgba(255,255,255,0.1) 100%);
-    -webkit-mask-size: 100% 300%;
-    mask-size: 100% 300%;
-}
-@keyframes light-vertical {
-    0% { opacity: 0.2; -webkit-mask-position: 0 -100%; mask-position: 0 -100%; }
-    10% { opacity: 1; }
-    90% { opacity: 1; }
-    100% { opacity: 0.2; -webkit-mask-position: 0 200%; mask-position: 0 200%; }
-}
-
-/* Diagonal TL-BR sweep */
-.grid-light-overlay--diag1 {
-    animation: light-diagonal-1 9s ease-out infinite 2s; /* Add delay */
-    -webkit-mask-image: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, white 50%, rgba(255,255,255,0.1) 100%);
-    mask-image: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, white 50%, rgba(255,255,255,0.1) 100%);
-    -webkit-mask-size: 500% 500%; /* Larger for full diagonal sweep */
-    mask-size: 500% 500%;
-}
-@keyframes light-diagonal-1 {
-    0% { opacity: 0.2; -webkit-mask-position: -100% -100%; mask-position: -100% -100%; }
-    10% { opacity: 1; }
-    90% { opacity: 1; }
-    100% { opacity: 0.2; -webkit-mask-position: 200% 200%; mask-position: 200% 200%; }
-}
-
-/* Diagonal TR-BL sweep */
-.grid-light-overlay--diag2 {
-    animation: light-diagonal-2 10s ease-out infinite 0.5s; /* Add delay */
-    -webkit-mask-image: linear-gradient(-135deg, rgba(255,255,255,0.1) 0%, white 50%, rgba(255,255,255,0.1) 100%);
-    mask-image: linear-gradient(-135deg, rgba(255,255,255,0.1) 0%, white 50%, rgba(255,255,255,0.1) 100%);
-    -webkit-mask-size: 500% 500%;
-    mask-size: 500% 500%;
-}
-@keyframes light-diagonal-2 {
-    0% { opacity: 0.2; -webkit-mask-position: 200% -100%; mask-position: 200% -100%; }
-    10% { opacity: 1; }
-    90% { opacity: 1; }
-    100% { opacity: 0.2; -webkit-mask-position: -100% 200%; mask-position: -100% 200%; }
-}
-
-/* Diagonal BL-TR sweep */
-.grid-light-overlay--diag3 {
-    animation: light-diagonal-3 8.5s ease-out infinite 1.5s; /* Add delay */
-    -webkit-mask-image: linear-gradient(45deg, rgba(255,255,255,0.1) 0%, white 50%, rgba(255,255,255,0.1) 100%);
-    mask-image: linear-gradient(45deg, rgba(255,255,255,0.1) 0%, white 50%, rgba(255,255,255,0.1) 100%);
-    -webkit-mask-size: 500% 500%;
-    mask-size: 500% 500%;
-}
-@keyframes light-diagonal-3 {
-    0% { opacity: 0.2; -webkit-mask-position: -100% 200%; mask-position: -100% 200%; }
-    10% { opacity: 1; }
-    90% { opacity: 1; }
-    100% { opacity: 0.2; -webkit-mask-position: 200% -100%; mask-position: 200% -100%; }
-}
-
-/* Diagonal BR-TL sweep */
-.grid-light-overlay--diag4 {
-    animation: light-diagonal-4 9.5s ease-out infinite 2.5s; /* Add delay */
-    -webkit-mask-image: linear-gradient(-45deg, rgba(255,255,255,0.1) 0%, white 50%, rgba(255,255,255,0.1) 100%);
-    mask-image: linear-gradient(-45deg, rgba(255,255,255,0.1) 0%, white 50%, rgba(255,255,255,0.1) 100%);
-    -webkit-mask-size: 500% 500%;
-    mask-size: 500% 500%;
-}
-@keyframes light-diagonal-4 {
-    0% { opacity: 0.2; -webkit-mask-position: 200% 200%; mask-position: 200% 200%; }
-    10% { opacity: 1; }
-    90% { opacity: 1; }
-    100% { opacity: 0.2; -webkit-mask-position: -100% -100%; mask-position: -100% -100%; }
-}
-
-
-.hero{
+.intake{
+    flex-wrap: wrap;
+    max-width: 1250px;
     align-items: center;
-    align-content: center;
+    flex-wrap: wrap;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-.hero-content {
-    text-align: center;
-}
-
-.hero-image {
-    display: flex;
-    justify-content: center;
     flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-top: 15rem;
+    flex: 1 1 300px;
 }
 
-.hero-content h1{
-    margin-top: 5rem;
-    margin-bottom: 3rem;
+.intake-image{
+    flex: 1 1 0;
 }
 
-.hero-image #img1 {
-  position: relative;
-  top: 1.5rem; /* Adjust this value to lower the image as needed */
+.intake-text{
+    flex: 1 1 0;
 }
+
+.intake-text h1{
+    font-size: 3rem;
+}
+
+.intake-text p{
+    font-size: 1.3rem;
+}
+
+.intake-image img{
+    width: 30rem;
+}
+
+
+.claw{
+    flex-wrap: wrap;
+    max-width: 1250px;
+    align-items: center;
+    flex-wrap: wrap;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20rem;
+    flex: 1 1 300px;
+}
+
+.claw-image{
+    flex: 1 1 0;
+}
+
+.claw-text{
+    flex: 1 1 0;
+}
+
+.claw-image img{
+    width: 25rem;
+}
+
+.claw-text h1{
+    font-size: 3rem;
+}
+
+.claw-text p{
+    font-size: 1.3rem;
+}
+
+/* Fade in and fade out animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fadeOut {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+.fade-in {
+  animation-name: fadeIn;
+  animation-duration: 3s;
+  animation-fill-mode: forwards;
+}
+
+.fade-out {
+  animation-name: fadeOut;
+  animation-duration: 2s;
+  animation-fill-mode: forwards;
+}
+
+
 
 
