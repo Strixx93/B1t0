@@ -178,17 +178,10 @@ body::after {
 }
 
 .hero-image img {
-    width: 100%;
-    max-width: min(32vw, 400px);
+    width: 200%;
+    max-width: min(50vw, 550px);
     border-radius: 50%;
-    border: 12px solid transparent;
-    box-shadow: -25px 50px 60px rgb(36, 3, 115);
-    background-color: #491f9d6d;
-    transition: background-color 0.3s ease-in-out;
-}
-
-.hero-image img:hover {
-    background-color: rgb(62, 14, 158);
+    
 }
 
 .hero-content {
