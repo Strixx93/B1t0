@@ -218,6 +218,42 @@ body{
   animation-fill-mode: forwards;
 }
 
+/* Responsive styles for phone screens */
+@media (max-width: 600px) {
+  .intake, .claw {
+    flex-direction: column;
+    margin-top: 5rem;
+  }
+
+  .intake-image img, .claw-image img, .hero-image img {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    margin: 0 auto 1.5rem auto;
+    display: block;
+  }
+
+  .intake-text h1, .claw-text h1, .hero-content h1 {
+    font-size: 2rem;
+  }
+
+  .intake-text p, .claw-text p, .hero-content p {
+    font-size: 1rem;
+  }
+
+  .hero-image {
+    flex-direction: column;
+    margin-bottom: 3rem;
+  }
+
+  .hero-image #img1 {
+    position: static;
+    margin-right: 0;
+    margin-bottom: 1rem;
+    top: 0;
+  }
+}
+
 
 
 

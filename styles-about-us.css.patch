@@ -1,0 +1,25 @@
+.sev-section, .ei-section {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20rem;
+    padding-bottom: 5rem;
+    width: 100%;
+}
+
+.sev-content, .ei-content {
+    flex: 1;
+    margin-right: 10rem;
+}
+
+.sev-content h1, .ei-content h1 {
+    font-size: clamp(1.5rem, 7vw, 2.5rem);
+    letter-spacing: 0.4rem;
+    font-weight: 300;
+    color: #62EAF5;
+}
+
+.sev-content p, .ei-content p {
+    line-height: 150%;
+}
